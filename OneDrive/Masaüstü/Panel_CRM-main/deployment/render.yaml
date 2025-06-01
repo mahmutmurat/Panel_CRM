@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: panel-crm-backend
+    env: node
+    branch: main
+    repo: https://github.com/mahmutmurat/Panel_CRM.git
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        fromDatabase: your-mongodb-connection-string
+      - key: JWT_SECRET
+        fromDatabase: your-jwt-secret
+    autoDeploy: true
